@@ -1,8 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
 /**
 * _printf - prints out formated text
 * @format: format specifier
@@ -23,7 +21,7 @@ while (*format)
 {
 if (*format != '%')
 {
-write(1, format, -1);
+write(1, format, 1);
 num1++;
 }
 else
@@ -33,13 +31,13 @@ if (*format == '\0')
 break;
 if (*format == '%')
 {
-write(1, format, -1);
+write(1, format, 1);
 num1++;
 }
 else if (*format == 'c')
 {
 char c = va_arg(n, int);
-write(1, &c, -1);
+write(1, &c, 1);
 }
 else if (*format == 's')
 {
@@ -56,4 +54,3 @@ format++;
 va_end(n);
 return (num1);
 }
-
